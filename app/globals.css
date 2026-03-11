@@ -62,7 +62,7 @@ section {
 }
 .animate-gradient-x {
   background-size: 200% 200%;
-  animation: gradient-x 6s ease-in-out infinite;
+  animation: gradient-x 3s ease-in-out infinite;
 }
 .drop-shadow-glow {
   filter: drop-shadow(0 0 16px #67e8f9cc) drop-shadow(0 0 8px #a21caf55);

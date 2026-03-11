@@ -47,8 +47,8 @@ export default function Navbar() {
           ))}
           <a
             href={`mailto:${EMAIL}`}
-            className="email-btn ml-2 px-4 py-2 rounded-lg font-semibold text-white bg-cyan-600 hover:bg-cyan-500 transition shadow focus:outline-none focus:ring-2 focus:ring-cyan-400"
-            style={{ letterSpacing: "0.01em" }}
+            className="email-btn ml-2 px-4 py-2 rounded-lg font-semibold text-white bg-gradient-to-r from-cyan-300 via-blue-400 to-fuchsia-400 animate-gradient-x transition shadow focus:outline-none focus:ring-2 focus:ring-cyan-400"
+            style={{ letterSpacing: "0.01em", backgroundSize: "200% 200%" }}
             title="Email Festus Slade"
           >
             Email
