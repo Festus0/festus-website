@@ -14,7 +14,10 @@ function Navbar({ links }) {
           <a href="#publications" className="nav-link">Publications</a>
           <a href={links.github} target="_blank" rel="noreferrer" className="nav-link">GitHub</a>
           <a href={links.cv} className="nav-link">CV</a>
-          <a href={links.email} className="ml-2 rounded-full bg-gradient-to-r from-cyan-400/80 to-fuchsia-400/80 px-4 py-2 text-xs font-semibold text-slate-950 shadow-lg transition hover:scale-105 hover:from-cyan-300 hover:to-fuchsia-300">Contact</a>
+          <a href={links.email} className="ml-2 rounded-full bg-gradient-to-r from-cyan-400/80 to-fuchsia-400/80 px-4 py-2 text-xs font-semibold text-slate-950 shadow-lg transition hover:scale-105 hover:from-cyan-300 hover:to-fuchsia-300">Email</a>
+          <a href={links.orcid} target="_blank" rel="noreferrer" className="nav-link">ORCID</a>
+          <a href={links.linkedin} target="_blank" rel="noreferrer" className="nav-link">LinkedIn</a>
+          <a href={links.cambridge} target="_blank" rel="noreferrer" className="nav-link">Cambridge Profile</a>
         </div>
       </div>
       <style jsx global>{`
@@ -46,55 +49,72 @@ export default function FestusPersonalWebsite() {
   useFadeInOnScroll();
 
   // Ensure 'links' is defined before use in JSX
-  // const links = {
-  //   github: "https://github.com/Festus0",
-  //   cv: "#",
-  //   scholar: "#",
-  //   email: "mailto:festus@example.com",
-  // };
+  const links = {
+    github: "https://github.com/Festus0",
+    cv: "#",
+    orcid: "https://orcid.org/0009-0002-3701-6252",
+    linkedin: "https://www.linkedin.com/in/festus-slade-ph-d-480b55120/",
+    cambridge: "https://neuroscience.cam.ac.uk/member/fs628cam-ac-uk/",
+    email: "mailto:fs628@cam.ac.uk",
+  };
 
   const publications = [
     {
-      title: "Zero-valent iron nanoparticles as theranostic MRI contrast agents",
-      venue: "Research chapter / manuscript",
+      title: "Transition metal Parashift and ParaCEST MRI agents: Current progress and challenges",
+      venue: "Coordination Chemistry Reviews",
+      year: "2024",
+      blurb: "F Slade, JF Collingwood, NJ Rogers",
+    },
+    {
+      title: "Enabling Characterisation of the NAD+ Biosynthesis Pathway via in vitro CEST MRI",
+      venue: "Alzheimer's & Dementia",
+      year: "2022",
+      blurb: "F Slade, D Villano, J Luo, D Longo, JF Collingwood",
+    },
+    {
+      title: "Adenosine-Linked CEST MRI Signatures of NAD⁺ Biosynthesis Precursors for Neurodegenerative Disease Detection",
+      venue: "Alzheimer's & Dementia",
       year: "2025",
-      blurb:
-        "Synthesis, characterization, relaxivity, and biomedical evaluation of Fe⁰ nanoparticles for imaging and therapy.",
+      blurb: "FM Slade, WW Lam, JF Collingwood, G Stanisz",
     },
     {
-      title: "Advanced non-Cartesian MRI and spectroscopy reconstruction workflows",
-      venue: "Methods and reconstruction portfolio",
-      year: "2025–2026",
-      blurb:
-        "PETALUTE, rosette, radial, NUFFT, and sequence-development work across Bruker and Siemens platforms.",
+      title: "Insights from the Characterisation of the NAD+ Biosynthesis Pathway via in-vitro CEST MRI",
+      venue: "ISMRM 2025 Proceedings",
+      year: "2025",
+      blurb: "F Slade, W Lam, JF Collingwood, G Stanisz",
     },
     {
-      title: "MRI physics for neuroscience and neurodegeneration",
-      venue: "Ongoing Cambridge research",
-      year: "2025–present",
-      blurb:
-        "Quantitative MRI, spectroscopy, and computational pipelines for robust signal interpretation in brain imaging.",
+      title: "The impact of amyloid-β and ferritin on ultra-high-field R2* and quantitative susceptibility mapping",
+      venue: "ISMRM Proceedings",
+      year: "2023",
+      blurb: "J Luo, J Everett, J Donnelly, F Slade, N Telling, JF Collingwood",
+    },
+    {
+      title: "DNNKit: A Lightweight Framework for Reproducible Deep Learning Experiments",
+      venue: "Zenodo",
+      year: "2026",
+      blurb: "F Slade",
     },
   ];
 
   const projects = [
     {
-      name: "PETALUTE Reconstruction Toolkit",
+      name: "Molecular and Metabolic Imaging",
       description:
-        "Custom reconstruction and diagnostics for non-Cartesian MRI, including density compensation, coil combination, QC, and report generation.",
-      tags: ["MATLAB", "MRI", "NUFFT", "Reconstruction"],
+        "Research in molecular imaging agents and nanoparticles, focusing on neurodegeneration and quantitative imaging.",
+      tags: ["MRI", "MRS", "Neurodegeneration", "Molecular Imaging"],
     },
     {
-      name: "SVS / MRS Analysis Pipelines",
+      name: "AI/ML in MRI",
       description:
-        "Spectroscopy processing workflows with alignment, water handling, diagnostic plotting, and publication-ready reporting.",
-      tags: ["MRS", "Signal Processing", "Quantification"],
+        "Developing AI and machine learning models for enhanced MRI sequence design and signal processing.",
+      tags: ["AI/ML", "Signal Processing", "MRI Sequence Design"],
     },
     {
-      name: "Open Research Code & Tools",
+      name: "Ultrahigh-field MRI and MRS",
       description:
-        "A growing portfolio of GitHub-ready scientific software, research repositories, reproducible workflows, and technical documentation.",
-      tags: ["GitHub", "Open Source", "Research Software"],
+        "Exploring the capabilities of ultrahigh-field MRI and MRS for advanced imaging techniques.",
+      tags: ["Ultrahigh-field MRI", "MRS", "Advanced Imaging"],
     },
   ];
 
@@ -135,10 +155,7 @@ export default function FestusPersonalWebsite() {
                 </span>
               </h1>
               <p className="mt-8 max-w-3xl text-lg leading-8 text-slate-300 md:text-xl font-medium">
-                I am an MRI physicist and researcher working across neuroimaging, spectroscopy,
-                reconstruction, quantitative imaging, and scientific software. My work combines
-                physics, chemistry, biomedical imaging, and computation to create tools that are
-                rigorous, reproducible, and clinically meaningful.
+                Dr. Festus Slade is a Postdoctoral Research Associate in MRI Physics for Neuroscience at the University of Cambridge. His research focuses on molecular and metabolic imaging, neurodegeneration, AI/ML, and MRI sequence design. He is committed to advancing the field of MRI through innovative research and collaboration.
               </p>
 
               <div className="mt-10 flex flex-wrap gap-4">
@@ -305,11 +322,17 @@ export default function FestusPersonalWebsite() {
           </div>
         </section>
 
-        {/* FOOTER */}
+        {/* FOOTER & CONTACT */}
         <footer className="mt-24 border-t border-white/10 py-10 text-base text-slate-400 fade-in-up opacity-0 translate-y-8 transition-all duration-1000 delay-300">
           <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
             <p>© 2026 Dr. Festus Slade. Built for research, visibility, and impact.</p>
-            <p>Cambridge • MRI Physics • Neuroimaging • Scientific Software</p>
+            <div className="flex gap-4">
+              <a href={links.github} target="_blank" rel="noreferrer" className="hover:text-cyan-300">GitHub</a>
+              <a href={links.orcid} target="_blank" rel="noreferrer" className="hover:text-cyan-300">ORCID</a>
+              <a href={links.linkedin} target="_blank" rel="noreferrer" className="hover:text-cyan-300">LinkedIn</a>
+              <a href={links.email} className="hover:text-cyan-300">Email</a>
+              <a href={links.cambridge} target="_blank" rel="noreferrer" className="hover:text-cyan-300">Cambridge Profile</a>
+            </div>
           </div>
         </footer>
       </main>
