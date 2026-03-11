@@ -51,7 +51,7 @@ export default function FestusPersonalWebsite() {
   // Ensure 'links' is defined before use in JSX
   const links = {
     github: "https://github.com/Festus0",
-    cv: "#",
+    cv: "https://example.com/cv.pdf", // Replace with the actual CV link
     orcid: "https://orcid.org/0009-0002-3701-6252",
     linkedin: "https://www.linkedin.com/in/festus-slade-ph-d-480b55120/",
     cambridge: "https://neuroscience.cam.ac.uk/member/fs628cam-ac-uk/",
