@@ -2,8 +2,13 @@
 import { useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import Publications from "./components/Publications";
+import About from "./components/About";
+import Experience from "./components/Experience";
 import Projects from "./components/Projects";
+import TechnicalProfile from "./components/TechnicalProfile";
+import Software from "./components/Software";
+import Publications from "./components/Publications";
+import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
 function useFadeInOnScroll() {
@@ -22,17 +27,8 @@ function useFadeInOnScroll() {
   }, []);
 }
 
-export default function FestusPersonalWebsite() {
+export default function FestusProfessionalPortfolio() {
   useFadeInOnScroll();
-
-  const links = {
-    github: "https://github.com/Festus0",
-    cv: "https://example.com/cv.pdf",
-    orcid: "https://orcid.org/0009-0002-3701-6252",
-    linkedin: "https://www.linkedin.com/in/festus-slade-ph-d-480b55120/",
-    cambridge: "https://neuroscience.cam.ac.uk/member/fs628cam-ac-uk/",
-    email: "mailto:fs628@cam.ac.uk",
-  };
 
   const publications = [
     {
@@ -75,91 +71,81 @@ export default function FestusPersonalWebsite() {
 
   const projects = [
     {
-      name: "Molecular and Metabolic Imaging",
+      name: "MRI Reconstruction Pipelines",
       description:
-        "Research in molecular imaging agents and nanoparticles, focusing on neurodegeneration and quantitative imaging.",
-      tags: ["MRI", "MRS", "Neurodegeneration", "Molecular Imaging"],
+        "Development of robust pipelines for quantitative MRI and advanced image reconstruction, including non-Cartesian and NUFFT methods.",
+      tags: ["MRI", "Reconstruction", "Python", "MATLAB", "NUFFT"],
+      github: "",
     },
     {
-      name: "AI/ML in MRI",
+      name: "PETALUTE Trajectory Work",
       description:
-        "Developing AI and machine learning models for enhanced MRI sequence design and signal processing.",
-      tags: ["AI/ML", "Signal Processing", "MRI Sequence Design"],
+        "Technical work on PETALUTE trajectories for efficient k-space sampling and improved image quality in MRI.",
+      tags: ["MRI", "Trajectory Design", "Signal Processing"],
+      github: "",
     },
     {
-      name: "Ultrahigh-field MRI and MRS",
+      name: "MR Spectroscopy Analysis Tools",
       description:
-        "Exploring the capabilities of ultrahigh-field MRI and MRS for advanced imaging techniques.",
-      tags: ["Ultrahigh-field MRI", "MRS", "Advanced Imaging"],
+        "Building analysis tools for MR spectroscopy data, including quantification and spectral fitting workflows.",
+      tags: ["MRS", "Spectroscopy", "Python", "MATLAB"],
+      github: "",
+    },
+    {
+      name: "CEST MRI Research",
+      description:
+        "Research and software for CEST MRI, including sequence development, data analysis, and quantitative modelling.",
+      tags: ["CEST MRI", "Sequence Development", "Quantitative Imaging"],
+      github: "",
+    },
+    {
+      name: "Scientific Computing Workflows",
+      description:
+        "Design and implementation of scientific computing workflows for imaging data, including reproducible pipelines and automation.",
+      tags: ["Scientific Computing", "Pipelines", "Automation"],
+      github: "",
+    },
+    {
+      name: "Data Pipelines and Modelling",
+      description:
+        "Development of data pipelines and modelling tools for quantitative biomedical imaging and translational research.",
+      tags: ["Data Analysis", "Modelling", "Biomedical Imaging"],
+      github: "",
+    },
+    {
+      name: "DNNKit Framework",
+      description:
+        "A lightweight PyTorch framework for building, training, and documenting deep neural network experiments.",
+      tags: ["Python", "PyTorch", "Deep Learning", "Reproducibility"],
+      github: "https://github.com/Festus0/dnnkit",
     },
   ];
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 font-sans relative">
-      <Navbar links={links} />
-      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
-        <div className="absolute left-[-10%] top-[-10%] h-96 w-96 rounded-full bg-cyan-400/20 blur-3xl animate-pulse-slow" />
-        <div className="absolute right-[-5%] top-[10%] h-[28rem] w-[28rem] rounded-full bg-fuchsia-400/20 blur-3xl animate-pulse-slower" />
-        <div className="absolute bottom-[-10%] left-[25%] h-[28rem] w-[28rem] rounded-full bg-indigo-400/20 blur-3xl animate-pulse-slow" />
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-950/80 via-slate-950/60 to-slate-900/80" />
-      </div>
-
+      <Navbar />
       <main className="mx-auto max-w-7xl px-6 pt-32 pb-10 md:px-10 lg:px-12">
-        <Hero links={links} />
+        <Hero />
+        <About />
+        <Experience />
         <Projects projects={projects} />
+        <TechnicalProfile />
+        <Software />
         <Publications publications={publications} />
-        <Footer links={links} />
+        <section id="cv" className="mt-32 max-w-3xl mx-auto fade-in-up opacity-0 translate-y-8">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-6 tracking-tight">CV</h2>
+          <a
+            href="/Festus_Slade_CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block rounded-2xl bg-gradient-to-r from-cyan-300 to-fuchsia-300 px-7 py-3 text-base font-semibold text-slate-950 shadow-lg transition hover:scale-105 hover:from-cyan-200 hover:to-fuchsia-200"
+          >
+            Download CV
+          </a>
+        </section>
+        <Contact />
+        <Footer />
       </main>
-      <style jsx global>{`
-        @keyframes gradient-x {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-        }
-        .animate-gradient-x {
-          background-size: 200% 200%;
-          animation: gradient-x 6s ease-in-out infinite;
-        }
-        .drop-shadow-glow {
-          filter: drop-shadow(0 0 16px #67e8f9cc) drop-shadow(0 0 8px #a21caf55);
-        }
-        .shadow-cyan-400\\/10 {
-          box-shadow: 0 4px 32px 0 #22d3ee1a;
-        }
-        .shadow-fuchsia-400\\/10 {
-          box-shadow: 0 4px 32px 0 #e879f91a;
-        }
-        .animate-pulse-slow {
-          animation: pulse-slow 8s cubic-bezier(.4,0,.6,1) infinite;
-        }
-        .animate-pulse-slower {
-          animation: pulse-slow 14s cubic-bezier(.4,0,.6,1) infinite;
-        }
-        @keyframes pulse-slow {
-          0%, 100% { opacity: 0.7; }
-          50% { opacity: 1; }
-        }
-        .fade-in-up {
-          opacity: 0;
-          transform: translateY(32px);
-        }
-        .fade-in-up.opacity-100 {
-          opacity: 1 !important;
-          transform: translateY(0) !important;
-        }
-        .translate-y-0 {
-          transform: translateY(0) !important;
-        }
-        .opacity-100 {
-          opacity: 1 !important;
-        }
-        .animate-glow {
-          animation: glow 2.5s ease-in-out infinite alternate;
-        }
-        @keyframes glow {
-          0% { text-shadow: 0 0 8px #67e8f9, 0 0 2px #fff; }
-          100% { text-shadow: 0 0 16px #a21caf, 0 0 4px #fff; }
-        }
-      `}</style>
     </div>
   );
 }

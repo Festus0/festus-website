@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a0a;
+  --foreground: #ededed;
 }
 
 @theme inline {
@@ -12,15 +12,94 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', 'Geist', Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Geist', 'Inter', Arial, Helvetica, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+section {
+  scroll-margin-top: 100px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background: #18181b;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 8px;
+}
+
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s cubic-bezier(.4,0,.2,1), transform 0.8s cubic-bezier(.4,0,.2,1);
+}
+.fade-in-up.opacity-100 {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+.translate-y-0 {
+  transform: translateY(0) !important;
+}
+.opacity-100 {
+  opacity: 1 !important;
+}
+
+@keyframes gradient-x {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradient-x 6s ease-in-out infinite;
+}
+.drop-shadow-glow {
+  filter: drop-shadow(0 0 16px #67e8f9cc) drop-shadow(0 0 8px #a21caf55);
+}
+.shadow-cyan-400\\/10 {
+  box-shadow: 0 4px 32px 0 #22d3ee1a;
+}
+.shadow-fuchsia-400\\/10 {
+  box-shadow: 0 4px 32px 0 #e879f91a;
+}
+.animate-pulse-slow {
+  animation: pulse-slow 8s cubic-bezier(.4,0,.6,1) infinite;
+}
+.animate-pulse-slower {
+  animation: pulse-slow 14s cubic-bezier(.4,0,.6,1) infinite;
+}
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+.animate-glow {
+  animation: glow 2.5s ease-in-out infinite alternate;
+}
+@keyframes glow {
+  0% { text-shadow: 0 0 8px #67e8f9, 0 0 2px #fff; }
+  100% { text-shadow: 0 0 16px #a21caf, 0 0 4px #fff; }
+}
+
+.card {
+  @apply rounded-2xl border border-cyan-400/10 bg-gradient-to-br from-slate-900/80 via-slate-950/60 to-slate-900/80 p-7 shadow-xl transition-all duration-300 hover:scale-[1.03] hover:border-cyan-400/30;
+}
+
+a {
+  transition: color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+
+@media (max-width: 600px) {
+  html { font-size: 16px; }
+  section { padding-left: 0.5rem; padding-right: 0.5rem; }
 }
