@@ -1,33 +1,10 @@
 "use client";
 import { useEffect } from "react";
-
-function Navbar({ links }) {
-  return (
-    <nav className="fixed top-0 left-0 z-50 w-full bg-gradient-to-b from-slate-950/90 via-slate-950/60 to-transparent backdrop-blur-lg border-b border-white/10">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-10 lg:px-12">
-        <div className="flex items-center gap-3">
-          <span className="text-xl font-extrabold tracking-tight text-cyan-300 drop-shadow-glow">Dr. Festus Slade</span>
-          <span className="hidden md:inline-block text-xs font-medium text-slate-400 ml-3 px-3 py-1 rounded-full border border-cyan-400/20 bg-cyan-400/5">MRI Physicist</span>
-        </div>
-        <div className="flex items-center gap-2 md:gap-4">
-          <a href="#projects" className="nav-link">Projects</a>
-          <a href="#publications" className="nav-link">Publications</a>
-          <a href={links.github} target="_blank" rel="noreferrer" className="nav-link">GitHub</a>
-          <a href={links.cv} className="nav-link">CV</a>
-          <a href={links.email} className="ml-2 rounded-full bg-gradient-to-r from-cyan-400/80 to-fuchsia-400/80 px-4 py-2 text-xs font-semibold text-slate-950 shadow-lg transition hover:scale-105 hover:from-cyan-300 hover:to-fuchsia-300">Email</a>
-          <a href={links.orcid} target="_blank" rel="noreferrer" className="nav-link">ORCID</a>
-          <a href={links.linkedin} target="_blank" rel="noreferrer" className="nav-link">LinkedIn</a>
-          <a href={links.cambridge} target="_blank" rel="noreferrer" className="nav-link">Cambridge Profile</a>
-        </div>
-      </div>
-      <style jsx global>{`
-        .nav-link {
-          @apply text-sm font-medium text-slate-200 px-3 py-2 rounded-lg transition hover:bg-white/10 hover:text-cyan-300;
-        }
-      `}</style>
-    </nav>
-  );
-}
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import Publications from "./components/Publications";
+import Projects from "./components/Projects";
+import Footer from "./components/Footer";
 
 function useFadeInOnScroll() {
   useEffect(() => {
@@ -48,10 +25,9 @@ function useFadeInOnScroll() {
 export default function FestusPersonalWebsite() {
   useFadeInOnScroll();
 
-  // Ensure 'links' is defined before use in JSX
   const links = {
     github: "https://github.com/Festus0",
-    cv: "https://example.com/cv.pdf", // Replace with the actual CV link
+    cv: "https://example.com/cv.pdf",
     orcid: "https://orcid.org/0009-0002-3701-6252",
     linkedin: "https://www.linkedin.com/in/festus-slade-ph-d-480b55120/",
     cambridge: "https://neuroscience.cam.ac.uk/member/fs628cam-ac-uk/",
@@ -118,7 +94,6 @@ export default function FestusPersonalWebsite() {
     },
   ];
 
-
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 font-sans relative">
       <Navbar links={links} />
@@ -130,204 +105,11 @@ export default function FestusPersonalWebsite() {
       </div>
 
       <main className="mx-auto max-w-7xl px-6 pt-32 pb-10 md:px-10 lg:px-12">
-        {/* HERO SECTION */}
-        <section className="rounded-[2.5rem] border border-white/10 bg-gradient-to-br from-white/10 via-slate-900/60 to-slate-950/80 p-10 shadow-2xl backdrop-blur-2xl md:p-16 mb-12 relative overflow-hidden">
-          <div className="absolute right-[-5%] top-[-10%] h-64 w-64 rounded-full bg-cyan-400/10 blur-2xl pointer-events-none" />
-          <div className="grid gap-14 lg:grid-cols-[1.5fr_1fr] lg:items-center">
-            <div className="fade-in-up opacity-0 translate-y-8 transition-all duration-1000">
-              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-5 py-2 text-base tracking-wide text-cyan-200 font-semibold shadow-cyan-400/10 shadow-lg animate-fade-in">
-                <span className="animate-glow">MRI Physicist</span>
-                <span className="text-slate-400">•</span>
-                <span>Researcher</span>
-                <span className="text-slate-400">•</span>
-                <span>Scientific Builder</span>
-              </div>
-              <h1 className="max-w-4xl text-5xl md:text-7xl font-extrabold leading-tight tracking-tight text-white drop-shadow-glow">
-                Dr. Festus Slade
-                <span className="block bg-gradient-to-r from-cyan-300 via-blue-300 to-fuchsia-300 bg-clip-text text-transparent mt-2 animate-gradient-x">
-                  Building MRI tools, research systems, and imaging ideas that move from signal to impact.
-                </span>
-              </h1>
-              <p className="mt-8 max-w-3xl text-lg leading-8 text-slate-300 md:text-xl font-medium">
-                Dr. Festus Slade is a Postdoctoral Research Associate in MRI Physics for Neuroscience at the University of Cambridge. His research focuses on molecular and metabolic imaging, neurodegeneration, AI/ML, and MRI sequence design. He is committed to advancing the field of MRI through innovative research and collaboration.
-              </p>
-
-              <div className="mt-10 flex flex-wrap gap-4">
-                <a
-                  href="#projects"
-                  className="rounded-2xl bg-gradient-to-r from-cyan-300 to-fuchsia-300 px-7 py-3 text-base font-semibold text-slate-950 shadow-lg transition hover:scale-105 hover:from-cyan-200 hover:to-fuchsia-200 focus:outline-none focus:ring-2 focus:ring-cyan-400"
-                >
-                  View Projects
-                </a>
-                <a
-                  href={links.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="rounded-2xl border border-white/15 bg-white/10 px-7 py-3 text-base font-semibold text-slate-100 shadow transition hover:bg-white/20 hover:text-cyan-200"
-                >
-                  GitHub
-                </a>
-                <a
-                  href="#publications"
-                  className="rounded-2xl border border-white/15 bg-white/10 px-7 py-3 text-base font-semibold text-slate-100 shadow transition hover:bg-white/20 hover:text-fuchsia-200"
-                >
-                  Publications
-                </a>
-              </div>
-            </div>
-
-            <div className="grid gap-6 fade-in-up opacity-0 translate-y-8 transition-all duration-1000 delay-200">
-              <div className="rounded-[1.5rem] border border-cyan-400/20 bg-slate-900/80 p-7 shadow-lg hover:shadow-cyan-400/10 transition-shadow duration-300">
-                <p className="text-xs uppercase tracking-[0.2em] text-cyan-300 font-semibold">Current Focus</p>
-                <p className="mt-3 text-2xl font-bold text-white drop-shadow-glow">
-                  MRI Physics for Neuroscience
-                </p>
-                <p className="mt-2 text-base leading-7 text-slate-300">
-                  Quantitative MRI, spectroscopy, sequence development, and computational pipelines
-                  for advanced brain imaging.
-                </p>
-              </div>
-              <div className="rounded-[1.5rem] border border-fuchsia-400/20 bg-slate-900/80 p-7 shadow-lg hover:shadow-fuchsia-400/10 transition-shadow duration-300">
-                <p className="text-xs uppercase tracking-[0.2em] text-fuchsia-300 font-semibold">Strengths</p>
-                <div className="mt-3 flex flex-wrap gap-2 text-sm text-slate-200">
-                  {[
-                    "MRI Physics",
-                    "MRS",
-                    "Non-Cartesian Reconstruction",
-                    "MATLAB",
-                    "Scientific Computing",
-                    "Sequence Development",
-                    "Neuroimaging",
-                  ].map((item) => (
-                    <span key={item} className="rounded-full border border-white/10 bg-white/10 px-3 py-1 font-medium shadow hover:bg-cyan-400/10 hover:text-cyan-200 transition">
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* QUICK LINKS */}
-        <section className="mt-12 grid gap-8 md:grid-cols-2 xl:grid-cols-4">
-          {[
-            ["Publications", "Research outputs, manuscripts, and scientific contributions."],
-            ["GitHub", "Open-source code, tools, repositories, and reproducible workflows."],
-            ["CV", "Experience, training, awards, technical strengths, and career trajectory."],
-            ["Projects", "Selected MRI, MRS, imaging, and software development work."],
-          ].map(([title, desc], i) => (
-            <div
-              key={title}
-              className={`rounded-[1.5rem] border border-white/10 bg-gradient-to-br from-white/10 to-slate-900/40 p-7 backdrop-blur shadow-xl group transition-all duration-300 hover:scale-[1.03] hover:border-cyan-400/30 fade-in-up opacity-0 translate-y-8`}
-              style={{ transitionDelay: `${i * 80}ms` }}
-            >
-              <h2 className="text-xl font-bold text-white tracking-tight mb-2 group-hover:text-cyan-300 transition">{title}</h2>
-              <p className="text-base leading-7 text-slate-300">{desc}</p>
-            </div>
-          ))}
-        </section>
-
-        {/* PROJECTS */}
-        <section id="projects" className="mt-24">
-          <div className="mb-8 flex items-end justify-between gap-4">
-            <div>
-              <p className="text-sm uppercase tracking-[0.25em] text-cyan-300 font-semibold">Research Projects</p>
-              <h2 className="mt-2 text-4xl font-extrabold text-white md:text-5xl tracking-tight drop-shadow-glow">Selected work</h2>
-            </div>
-          </div>
-          <div className="grid gap-8 lg:grid-cols-3">
-            {projects.map((project, i) => (
-              <div
-                key={project.name}
-                className="rounded-[2rem] border border-cyan-400/10 bg-gradient-to-br from-slate-900/80 via-slate-950/60 to-slate-900/80 p-8 shadow-2xl group transition-all duration-300 hover:scale-[1.03] hover:border-cyan-400/30 fade-in-up opacity-0 translate-y-8"
-                style={{ transitionDelay: `${i * 100}ms` }}
-              >
-                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-cyan-300 transition">{project.name}</h3>
-                <p className="text-base leading-7 text-slate-300">{project.description}</p>
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span key={tag} className="rounded-full bg-gradient-to-r from-cyan-400/10 to-fuchsia-400/10 px-3 py-1 text-xs font-semibold text-cyan-200 shadow group-hover:bg-cyan-400/20 transition">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* PUBLICATIONS */}
-        <section id="publications" className="mt-24">
-          <p className="text-sm uppercase tracking-[0.25em] text-fuchsia-300 font-semibold">Publications</p>
-          <h2 className="mt-2 text-4xl font-extrabold text-white md:text-5xl tracking-tight drop-shadow-glow">Outputs and manuscripts</h2>
-          <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {publications.map((pub, i) => (
-              <div
-                key={pub.title}
-                className="rounded-[1.75rem] border border-fuchsia-400/10 bg-gradient-to-br from-white/10 to-fuchsia-400/5 p-7 shadow-xl group transition-all duration-300 hover:scale-[1.03] hover:border-fuchsia-400/30 fade-in-up opacity-0 translate-y-8"
-                style={{ transitionDelay: `${i * 80}ms` }}
-              >
-                <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
-                  <h3 className="text-lg font-bold text-white group-hover:text-fuchsia-300 transition">{pub.title}</h3>
-                  <span className="text-sm text-slate-400">{pub.year}</span>
-                </div>
-                <p className="mt-1 text-sm text-cyan-200 font-medium">{pub.venue}</p>
-                <p className="mt-3 text-base leading-7 text-slate-300">{pub.blurb}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* GITHUB & CONTACT */}
-        <section className="mt-24 grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
-          <div className="rounded-[2rem] border border-cyan-400/10 bg-gradient-to-br from-cyan-400/10 to-slate-900/40 p-10 shadow-xl fade-in-up opacity-0 translate-y-8 transition-all duration-1000">
-            <p className="text-sm uppercase tracking-[0.25em] text-blue-300 font-semibold">GitHub</p>
-            <h2 className="mt-2 text-3xl font-extrabold text-white">Code, tools, and reproducibility</h2>
-            <p className="mt-5 max-w-2xl text-base leading-7 text-slate-300">
-              My GitHub showcases MRI physics tools, reconstruction workflows, spectroscopy
-              pipelines, scientific software, and research repositories built for clarity,
-              reproducibility, and real-world scientific use.
-            </p>
-            <a
-              href={links.github}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-8 inline-flex rounded-2xl bg-gradient-to-r from-cyan-300 to-fuchsia-300 px-7 py-3 text-base font-semibold text-slate-950 shadow-lg transition hover:scale-105 hover:from-cyan-200 hover:to-fuchsia-200"
-            >
-              Visit GitHub Profile
-            </a>
-          </div>
-
-          <div className="rounded-[2rem] border border-fuchsia-400/10 bg-gradient-to-br from-cyan-400/10 to-fuchsia-400/10 p-10 shadow-xl fade-in-up opacity-0 translate-y-8 transition-all duration-1000 delay-200">
-            <p className="text-sm uppercase tracking-[0.25em] text-fuchsia-300 font-semibold">CV & Contact</p>
-            <h2 className="mt-2 text-3xl font-extrabold text-white">Professional profile</h2>
-            <div className="mt-8 space-y-4 text-base text-slate-200">
-              <a href={links.cv} className="block rounded-2xl border border-white/10 bg-black/10 px-5 py-3 font-semibold hover:bg-cyan-400/10 hover:text-cyan-200 transition">
-                Download CV
-              </a>
-              <a href={links.email} className="block rounded-2xl border border-white/10 bg-black/10 px-5 py-3 font-semibold hover:bg-cyan-400/10 hover:text-cyan-200 transition">
-                Contact
-              </a>
-            </div>
-          </div>
-        </section>
-
-        {/* FOOTER & CONTACT */}
-        <footer className="mt-24 border-t border-white/10 py-10 text-base text-slate-400 fade-in-up opacity-0 translate-y-8 transition-all duration-1000 delay-300">
-          <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-            <p>© 2026 Dr. Festus Slade. Built for research, visibility, and impact.</p>
-            <div className="flex gap-4">
-              <a href={links.github} target="_blank" rel="noreferrer" className="hover:text-cyan-300">GitHub</a>
-              <a href={links.orcid} target="_blank" rel="noreferrer" className="hover:text-cyan-300">ORCID</a>
-              <a href={links.linkedin} target="_blank" rel="noreferrer" className="hover:text-cyan-300">LinkedIn</a>
-              <a href={links.email} className="hover:text-cyan-300">Email</a>
-              <a href={links.cambridge} target="_blank" rel="noreferrer" className="hover:text-cyan-300">Cambridge Profile</a>
-            </div>
-          </div>
-        </footer>
+        <Hero links={links} />
+        <Projects projects={projects} />
+        <Publications publications={publications} />
+        <Footer links={links} />
       </main>
-      {/* Animations */}
       <style jsx global>{`
         @keyframes gradient-x {
           0%, 100% { background-position: 0% 50%; }
