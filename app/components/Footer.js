@@ -15,7 +15,12 @@ export default function Footer() {
           <a href={links.github} target="_blank" rel="noopener noreferrer" className="hover:text-cyan-300">GitHub</a>
           <a href={links.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-cyan-300">LinkedIn</a>
           <a href={links.orcid} target="_blank" rel="noopener noreferrer" className="hover:text-cyan-300">ORCID</a>
-          <a href={links.email} className="hover:text-cyan-300">Email</a>
+          <a
+            href={links.email}
+            className="bg-gradient-to-r from-cyan-400 via-fuchsia-500 to-blue-600 text-white font-semibold px-4 py-1 rounded-full shadow-lg border border-cyan-400/40 hover:from-fuchsia-500 hover:to-cyan-400 hover:scale-105 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+          >
+            Email
+          </a>
           <a href={links.cambridge} target="_blank" rel="noopener noreferrer" className="hover:text-cyan-300">Cambridge Profile</a>
         </div>
       </div>

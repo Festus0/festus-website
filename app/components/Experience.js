@@ -1,6 +1,12 @@
 export default function Experience() {
   const roles = [
     {
+      title: "Founder",
+      org: "CognitoDx",
+      period: "2024 – Present",
+      description: "Founded CognitoDx, a venture focused on innovative approaches in neurotechnology and data-driven healthcare. (Details confidential / in progress.)",
+    },
+    {
       title: "Postdoctoral Research Associate",
       org: "University of Cambridge",
       period: "2023 – Present",
