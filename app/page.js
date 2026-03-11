@@ -280,7 +280,7 @@ export default function FestusPersonalWebsite() {
           </div>
 
           <div className="rounded-[2rem] border border-fuchsia-400/10 bg-gradient-to-br from-cyan-400/10 to-fuchsia-400/10 p-10 shadow-xl fade-in-up opacity-0 translate-y-8 transition-all duration-1000 delay-200">
-            <p className="text-sm uppercase tracking-[0.25em] text-slate-300 font-semibold">CV & Contact</p>
+            <p className="text-sm uppercase tracking-[0.25em] text-fuchsia-300 font-semibold">CV & Contact</p>
             <h2 className="mt-2 text-3xl font-extrabold text-white">Professional profile</h2>
             <div className="mt-8 space-y-4 text-base text-slate-200">
               <a href={links.cv} className="block rounded-2xl border border-white/10 bg-black/10 px-5 py-3 font-semibold hover:bg-cyan-400/10 hover:text-cyan-200 transition">
