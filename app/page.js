@@ -118,12 +118,6 @@ export default function FestusPersonalWebsite() {
     },
   ];
 
-  const links = {
-    github: "https://github.com/Festus0",
-    cv: "#",
-    scholar: "#",
-    email: "mailto:festus@example.com",
-  };
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 font-sans relative">
