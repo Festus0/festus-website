@@ -45,12 +45,12 @@ export default function FestusPersonalWebsite() {
   useFadeInOnScroll();
 
   // Ensure 'links' is defined before use in JSX
-  const links = {
-    github: "https://github.com/Festus0",
-    cv: "#",
-    scholar: "#",
-    email: "mailto:festus@example.com",
-  };
+  // const links = {
+  //   github: "https://github.com/Festus0",
+  //   cv: "#",
+  //   scholar: "#",
+  //   email: "mailto:festus@example.com",
+  // };
 
   const publications = [
     {
