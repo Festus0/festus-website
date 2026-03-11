@@ -306,9 +306,6 @@ export default function FestusPersonalWebsite() {
               <a href={links.cv} className="block rounded-2xl border border-white/10 bg-black/10 px-5 py-3 font-semibold hover:bg-cyan-400/10 hover:text-cyan-200 transition">
                 Download CV
               </a>
-              <a href={links.scholar} className="block rounded-2xl border border-white/10 bg-black/10 px-5 py-3 font-semibold hover:bg-fuchsia-400/10 hover:text-fuchsia-200 transition">
-                Google Scholar
-              </a>
               <a href={links.email} className="block rounded-2xl border border-white/10 bg-black/10 px-5 py-3 font-semibold hover:bg-cyan-400/10 hover:text-cyan-200 transition">
                 Contact
               </a>
